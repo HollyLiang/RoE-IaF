@@ -1,0 +1,31 @@
+<mat-toolbar class="header" color="primary">
+  <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  <span>AOE</span>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button> -->
+</mat-toolbar>
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="over">
+    <mat-nav-list>
+      <!-- <div mat-subheader>Folders</div> -->
+      <mat-list-item role="navigation" [routerLink]="['home']" (click)="drawer.close()">
+        <mat-icon>home</mat-icon> 首頁
+      </mat-list-item>
+      <mat-list-item role="navigation" [routerLink]="['courage-medal']" (click)="drawer.close()">
+        <mat-icon>military_tech</mat-icon> 勇氣勳章
+      </mat-list-item>
+      <mat-list-item role="navigation" [routerLink]="['map-simulator']" (click)="drawer.close()">
+        <mat-icon>map</mat-icon> 地圖模擬器
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

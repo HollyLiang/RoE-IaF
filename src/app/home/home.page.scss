@@ -1,0 +1,25 @@
+:host {
+  padding-top: 10px;
+  display: block;
+
+  .now-time {
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #efefef;
+  }
+
+  .mat-list-item {
+    height: 30px;
+    .item {
+      display: flex;
+      width: 100%;
+    }
+    .label {
+      flex: 1;
+    }
+    .score {
+      width: 100px;
+      text-align: right;
+    }
+  }
+}

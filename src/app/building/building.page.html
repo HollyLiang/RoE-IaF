@@ -1,0 +1,32 @@
+<div style="padding: 5px 0px;">
+  <button mat-raised-button (click)="initDashboard()" style="margin-left: 5px;">
+    <mat-icon>undo</mat-icon>恢復預設</button>
+  <button mat-raised-button (click)="addCastle()" style="margin-left: 5px;">
+    <mat-icon>add</mat-icon>城堡</button>
+  <button mat-raised-button (click)="addCastle()" style="margin-left: 5px;">
+    <mat-icon>add</mat-icon>城堡</button>
+  <button mat-raised-button (click)="addAC()">
+    <mat-icon>add</mat-icon>堡壘</button>
+  <button mat-raised-button (click)="addFortress()">
+    <mat-icon>add</mat-icon>要塞</button>
+  <button mat-raised-button (click)="addStucture(11)" style="margin-left: 5px;">
+    <mat-icon>add</mat-icon>作坊</button>
+  <button mat-raised-button (click)="addStucture(12)" style="margin-left: 5px;">
+    <mat-icon>add</mat-icon>營地</button>
+  <button mat-raised-button (click)="addStucture(13)" style="margin-left: 5px;">
+    <mat-icon>add</mat-icon>強攻</button>
+  <button mat-raised-button (click)="addStucture(14)" style="margin-left: 5px;">
+    <mat-icon>add</mat-icon>堅守</button>
+  <button mat-raised-button (click)="isShowDelete = !isShowDelete" color="warn" style="margin-left: 5px;">
+    <mat-icon>delete</mat-icon>開關垃圾桶</button>
+  <!-- 建築物數量：{{ structureNum }}；
+    可供玩家數：{{ structureNum / 4 }} -->
+</div>
+<gridster [options]="options">
+  <gridster-item [item]="item" *ngFor="let item of dashboard" [class]="'building type-' + item.type">
+    <div class="button-holder">
+      <button *ngIf="isShowDelete" mat-icon-button color="primary" (click)="onDeleteClick(item)"><mat-icon>delete</mat-icon></button>
+      <span *ngIf="!isShowDelete">{{item.content}}</span>
+    </div>
+  </gridster-item>
+</gridster>

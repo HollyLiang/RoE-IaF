@@ -1,0 +1,131 @@
+<div class="now-time">
+  現在時間<br>
+  <span style="font-size: 32px;">
+  {{ nowTime.getHours() }}:
+  {{ nowTime.getMinutes() }}:
+  {{ nowTime.getSeconds() }}
+  </span>
+</div>
+<mat-list>
+  <div mat-subheader>
+    現在任務<mat-icon *ngIf="mission.recommend" color="accent" style="margin-left: 8px;">recommend</mat-icon>
+  </div>
+  <div *ngFor="let m of mission.includes">
+    <!-- {{ m }} -->
+    <ng-container *ngTemplateOutlet="missionContent; context: {$implicit:m}">
+    </ng-container>
+  </div>
+  <div mat-subheader>
+    下個小時任務<mat-icon *ngIf="nextMission.recommend" color="accent" style="margin-left: 8px;">recommend</mat-icon>
+  </div>
+  <div *ngFor="let m of nextMission.includes">
+    <!-- {{ m }} -->
+    <ng-container *ngTemplateOutlet="missionContent; context: {$implicit:m}">
+    </ng-container>
+  </div>
+</mat-list>
+
+<ng-template #missionContent let-m>
+  <ng-container [ngSwitch]="m">
+    <ng-container *ngSwitchCase="'招募'">
+      <mat-list-item>
+        <div class="item">
+          <div class="label">使用1張普通招募券</div>
+          <div class="score">+10,000</div>
+        </div>
+      </mat-list-item>
+      <mat-list-item>
+        <div class="item">
+          <div class="label">使用1張高級招募券</div>
+          <div class="score">+50,000</div>
+        </div>
+      </mat-list-item>
+      <mat-list-item>
+        <div class="item">
+          <div class="label">使用1張超級招募券</div>
+          <div class="score">+200,000</div>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-container *ngSwitchCase="'解鎖技能'">
+      <mat-list-item>
+        <div class="item">
+          <div class="label">任意英雄解鎖1個技能</div>
+          <div class="score">+20,000</div>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-container *ngSwitchCase="'經驗'">
+      <mat-list-item>
+        <div class="item">
+          <div class="label">英雄每獲得10點經驗</div>
+          <div class="score">+1</div>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-container *ngSwitchCase="'兌換智慧勳章'">
+      <mat-list-item>
+        <div class="item">
+          <div class="label">兌換獲得1個智慧勳章</div>
+          <div class="score">+1,000</div>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-container *ngSwitchCase="'消耗智慧勳章'">
+      <mat-list-item>
+        <div class="item">
+          <div class="label">消耗1個智慧勳章</div>
+          <div class="score">+2,000</div>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-container *ngSwitchCase="'士兵加速'">
+      <mat-list-item>
+        <div class="item">
+          <div class="label">訓練士兵時每使用1分鐘加速道具</div>
+          <div class="score">+400</div>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-container *ngSwitchCase="'科技加速'">
+      <mat-list-item>
+        <div class="item">
+          <div class="label">科技研究時每使用1分鐘加速道具</div>
+          <div class="score">+400</div>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-container *ngSwitchCase="'建築加速'">
+      <mat-list-item>
+        <div class="item">
+          <div class="label">建築升級時每使用1分鐘加速道具</div>
+          <div class="score">+400</div>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-container *ngSwitchCase="'建築'">
+      <mat-list-item>
+        <div class="item">
+          <div class="label">每提升1點建築戰鬥力</div>
+          <div class="score">+1,000</div>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-container *ngSwitchCase="'科技'">
+      <mat-list-item>
+        <div class="item">
+          <div class="label">每提升1點科技戰鬥力</div>
+          <div class="score">+400</div>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-container *ngSwitchCase="'任意加速'">
+      <mat-list-item>
+        <div class="item">
+          <div class="label">每使用1分鐘任意加速道具</div>
+          <div class="score">+400</div>
+        </div>
+      </mat-list-item>
+    </ng-container>
+  </ng-container>
+</ng-template>

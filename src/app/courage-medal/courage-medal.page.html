@@ -1,0 +1,20 @@
+總共需要的勇氣勳章數量: {{ totalDemandMedals }}
+<form [formGroup]="form">
+  <mat-list>
+    <div mat-subheader>T9 科技</div>
+    <mat-list-item *ngFor="let skill of T9SKills">
+      <div class="item">
+        <div class="name">{{skill.name}}</div>
+        <div class="level">
+          <mat-select [formControlName]="skill.id" (selectionChange)="onSelectionChange(skill.id)">
+            <mat-option [value]="0">0</mat-option>
+            <mat-option [value]="i+1" *ngFor="let level of skill.demand; let i=index">{{i+1}}</mat-option>
+          </mat-select>
+          <button mat-icon-button (click)="onMinusClick(skill.id)"><mat-icon>remove</mat-icon></button>
+          <input matInput readonly [formControlName]="skill.id + '_w'" style="width: 20px">
+          <button mat-icon-button (click)="onPlusClick(skill.id)"><mat-icon>add</mat-icon></button>
+        </div>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</form>

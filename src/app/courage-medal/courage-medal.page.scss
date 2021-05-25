@@ -1,0 +1,18 @@
+:host {
+  .item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    .name {
+      flex: 1;
+    }
+    .level {
+      width: 20 0px;
+
+      .mat-select {
+        width: 40px;
+      }
+    }
+  }
+}
