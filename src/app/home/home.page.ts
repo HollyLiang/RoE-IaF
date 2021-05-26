@@ -91,12 +91,12 @@ export class HomePage {
     ]
   ];
 
-  timer: number;
+  timer: NodeJS.Timeout | undefined;
   nowTime = new Date();
   mission: any;
   nextMission: any;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.setTimer();
@@ -118,12 +118,11 @@ export class HomePage {
         calTime.getHours() % 8
       ];
 
-      console.log(calTime);
       this.setTimer();
     }, 1000);
   }
 
   ngOnDestroy() {
-    clearTimeout(this.timer);
+    if (this.timer) clearTimeout(this.timer);
   }
 }

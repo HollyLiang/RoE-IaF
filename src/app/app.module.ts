@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 
 import { GridsterModule } from 'angular-gridster2';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +11,7 @@ import { LayoutModule } from '../layout/layout.module';
 import { MatModule } from '../shared/mat.module';
 import { BuildingPage } from './building/building.page';
 import { CourageMedalPage } from './courage-medal/courage-medal.page';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -21,11 +21,11 @@ import { CourageMedalPage } from './courage-medal/courage-medal.page';
     AppRoutingModule,
     GridsterModule,
     MatModule,
-    LayoutModule
+    LayoutModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
-    HelloComponent,
     HomePage,
     BuildingPage,
     CourageMedalPage

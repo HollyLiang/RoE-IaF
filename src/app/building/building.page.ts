@@ -23,8 +23,8 @@ interface Safe extends GridsterConfig {
   styleUrls: ['./building.page.scss']
 })
 export class BuildingPage {
-  options: Safe;
-  dashboard: Array<GridsterItem>;
+  options: Safe = <Safe>{};
+  dashboard: Array<GridsterItem> = [];
   isShowDelete = false;
 
   get structureNum() {
@@ -292,7 +292,7 @@ export class BuildingPage {
     }
   }
 
-  removeItem($event: MouseEvent | TouchEvent, item): void {
+  removeItem($event: MouseEvent | TouchEvent, item: any): void {
     $event.preventDefault();
     $event.stopPropagation();
     this.dashboard.splice(this.dashboard.indexOf(item), 1);
@@ -344,13 +344,12 @@ export class BuildingPage {
     this.dashboard.push({ cols: 1, rows: 1, y: 0, x: 0, type, content });
   }
 
-  itemChange(item, grid) {
-    console.log(item);
+  itemChange(item: any, grid: any) {
     // console.log(JSON.stringify(this.dashboard));
     this.save();
   }
 
-  onDeleteClick(item) {
+  onDeleteClick(item: any) {
     console.log(item);
     const index = this.dashboard.findIndex(
       i => i.x === item.x && i.y === item.y
